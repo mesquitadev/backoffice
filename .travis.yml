@@ -2,6 +2,7 @@ dist: xenial
 language: java
 sudo: false
 jdk: openjdk17
+install: true
 cache:
   directories:
     - $HOME/.m2
