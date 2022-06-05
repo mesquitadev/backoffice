@@ -1,0 +1,7 @@
+dist: xenial
+language: java
+sudo: false
+jdk: openjdk17
+cache:
+  directories:
+    - $HOME/.m2
