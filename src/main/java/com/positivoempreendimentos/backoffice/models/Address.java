@@ -20,4 +20,12 @@ public class Address implements Serializable {
   private String province;
   private String country;
 
+  @OneToOne(cascade = {
+      CascadeType.MERGE
+  })
+  private Person person;
+  @OneToOne(cascade = {
+      CascadeType.MERGE
+  })
+  private Sponsor sponsor;
 }

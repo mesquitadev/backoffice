@@ -26,12 +26,13 @@ public class Person implements Serializable {
   @OneToOne(cascade = {
       CascadeType.MERGE
   })
-  private Address address;
+  private User user;
 
   @OneToOne(cascade = {
       CascadeType.MERGE
   })
-  private Sponsor sponsor;
+  private Address address;
+
 
   @Override
   public boolean equals(Object o) {
