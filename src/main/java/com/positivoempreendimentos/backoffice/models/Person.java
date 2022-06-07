@@ -13,7 +13,7 @@ import java.util.Objects;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person implements Serializable {
+public class Person extends Auditable implements Serializable {
   private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,12 +26,13 @@ public class Person implements Serializable {
   @OneToOne(cascade = {
       CascadeType.MERGE
   })
-  private Address address;
+  private User user;
 
   @OneToOne(cascade = {
       CascadeType.MERGE
   })
-  private Sponsor sponsor;
+  private Address address;
+
 
   @Override
   public boolean equals(Object o) {

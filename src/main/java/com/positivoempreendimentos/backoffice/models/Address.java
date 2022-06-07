@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-public class Address implements Serializable {
+public class Address extends Auditable implements Serializable {
   private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +20,12 @@ public class Address implements Serializable {
   private String province;
   private String country;
 
+  @OneToOne(cascade = {
+      CascadeType.MERGE
+  })
+  private Person person;
+  @OneToOne(cascade = {
+      CascadeType.MERGE
+  })
+  private Sponsor sponsor;
 }

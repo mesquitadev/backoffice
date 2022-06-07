@@ -3,10 +3,7 @@ package com.positivoempreendimentos.backoffice.models;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,11 +13,16 @@ import java.util.Objects;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Sponsor implements Serializable {
+public class Sponsor extends Auditable implements Serializable {
   private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
+  @OneToOne(cascade = {
+      CascadeType.MERGE
+  })
+  private Address address;
 
   @Override
   public boolean equals(Object o) {
